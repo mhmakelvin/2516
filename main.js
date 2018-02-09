@@ -2,9 +2,9 @@ javascript:
 (
 	function(j,f)
 	{
-		j=['https://sgimera.github.io/mai_RatingAnalyzer/scripts/mai_inner_level.js',
-		   'https://sgimera.github.io/mai_RatingAnalyzer/scripts/calc_rating.js',
-		   'https://sgimera.github.io/mai_RatingAnalyzer/scripts/maiRatingAnalyzer_body.js'];
+		j=['https://noname258.github.io/2516/data.js',
+		   'https://noname258.github.io/2516/calc.js',
+		   'https://noname258.github.io/2516/body.js'];
 		f=function(s,u)
 		{
 			if(j.length==0)
