@@ -462,7 +462,7 @@ tmpstr += maimai_inner_lv.length + "songs(" + mra_update_mlist + ") version\n";
 tmpstr += "Last Update : ";
 tmpstr += (mra_update_algorithm >= mra_update_llist)?mra_update_algorithm:mra_update_llist;
 tmpstr += "\n\n";
-tmpstr += "Programmed by @sgimera";
+tmpstr += "Plagiarized by me";
 if(!confirm(tmpstr))
 	return;
 	
