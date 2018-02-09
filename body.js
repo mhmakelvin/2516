@@ -256,7 +256,6 @@ function print_result(golliramode, homeaddr)
 	result_str += "<li>カッコなしは小数第1位まであれば牛乳ver.で調査済みです。<br>無い物は未調査です。<\/li><\/ul>";
 	result_str += "<h3>単曲レート値について<\/h3>";
 	result_str += "<p>内部Lv.として表示している値で算出した値です。<\/p>";
-	result_str += "12, 12+, 13となっているものは、それぞれの最低値で算出してます。<\/p>";
 	
 	
 	
