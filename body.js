@@ -221,21 +221,6 @@ function print_result(golliramode, homeaddr)
 		print_result_sub("HISTORY枠", hist_rating + "<br>(" + hist_left + ")",
 				 "(上位" + mra_history +"曲の合計)/(" + mra_history + "*44/4)<br>()は+0.01する為の必要レート");
 
-	result_str += "<\/table>";
-
-	result_str += "<p align=center>";
-	result_str += "<a href=\"https:\/\/twitter.com\/intent\/tweet\?hashtags=";
-	result_str += hashtag;
-	result_str += "\&text=";
-	result_str += tweet_rate_str + "\" ";
-	result_str += "target=\"_blank\">＞＞Rating情報のツイートはここをクリック＜＜<\/a><\/p>";
-
-	result_str += "<p align=center>";
-	result_str += "<a href=\"https:\/\/sgimera.github.io\/mai_RatingAnalyzer\" target=\"_blank\">";
-	result_str += "＞＞解説は新・CYCLES FUNの寝言 siteへ＜＜<\/a><\/p>";
-
-	result_str += "<h2>" + your_id + "の全譜面レート値データ<\/h2>";
-	result_str += "<p>寝言サイトにも書いてますが、<b>ただの飾り<\/b>です。参考情報。<\/p>";
 
 	if(hashtag.slice(-4)=="test")
 	{
@@ -246,17 +231,6 @@ function print_result(golliramode, homeaddr)
 	result_str += tweet_best_str + "\" ";
 	result_str += "target=\"_blank\">＞＞TOP10のツイートはここをクリック＜＜<\/a><\/p>";
 	}
-	
-	result_str += "<h3>内部Lv.＆レート値について<\/h3>";
-	result_str += "<p>Master、Re:Master<\/p><ul>"
-	result_str += "<li>カッコありは<font color=red><b>牛乳ver.では未検証譜面<\/b><\/font>なので、<br>一旦、紫+ver.の値を設定してます。<\/p><\/li>";
-	result_str += "<li>カッコなしは牛乳ver.で調査済みです。<br>Lv.11+以下については調査値で示してます。<\/li><\/ul>";
-	result_str += "<p>Expert<\/p><ul>"
-	result_str += "<li>カッコありは紫+ver.で調査済みで<font color=red><b>牛乳ver.では未検証<\/b><\/font>な譜面です。<\/p><\/li>";
-	result_str += "<li>カッコなしは小数第1位まであれば牛乳ver.で調査済みです。<br>無い物は未調査です。<\/li><\/ul>";
-	result_str += "<h3>単曲レート値について<\/h3>";
-	result_str += "<p>内部Lv.として表示している値で算出した値です。<\/p>";
-	result_str += "12, 12+, 13となっているものは、それぞれの最低値で算出してます。<\/p>";
 	
 	
 	
