@@ -1,16 +1,19 @@
 /* このコード・データを単品で使用していることが発覚した場合、それなりの請求を行いますので、そのつもりで。 */
 javascript:
-var mra_update_mlist = "2018.02.06";	/* 公式の楽曲リスト更新日 タイトルに表示*/
-var mra_update_llist = "2018.02.07";	/* Lv.情報、名前変更日 */
+var mra_update_mlist = "2018.02.20";	/* 公式の楽曲リスト更新日 タイトルに表示*/
+var mra_update_llist = "2018.02.20";	/* Lv.情報、名前変更日 */
 var mra_history = 473;
 var maimai_inner_lv = [
 	{levels:["8-", "11.2", ""],	score:[313000, 427500, 0],	name:"ようこそジャパリパークへ", nick:"ジャパリパーク"},
 	{levels:["8-", "(11.8)", ""],	score:[312500, 514000, 0],	name:"前前前世", nick:""},
 	{levels:["9-", "11.9", ""],	score:[312500, 479000, 0],	name:"REVIVER オルタンシア・サーガ -蒼の騎士団- オリジナルVer.", nick:"REVIVER"},
+	{levels:["9-", "11.7", ""],	score:[333000, 549000, 0],	name:"ヤバい○○", nick:"ヤバい"},
+	{levels:["9-", "11.7", ""],	score:[327000, 619000, 0],	name:"ミラクル・ショッピング", nick:"ドンキのテーマ"},
+	{levels:["9-", "12.7", ""],	score:[326500, 625000, 0],	name:"ギリギリ最強あいまいみー！", nick:"あいまいみー"},
 	{levels:["9+", "11.6", ""],	score:[249000, 341500, 0],	name:"Los! Los! Los!", nick:"LosLosLos"},
 	{levels:["9+", "11.9", ""],	score:[281500, 479500, 0],	name:"This game", nick:""},
 	{levels:["9-", "11.4", ""],	score:[254000, 404000, 0],	name:"あ・え・い・う・え・お・あお!!", nick:"あえいうえおあお"},
-	{levels:["9-", "(11.7)", ""],	score:[367500, 791000, 0],	name:"日本の米は世界一", nick:"日本米世界一"},
+	{levels:["9-", "11.7", ""],	score:[367500, 791000, 0],	name:"日本の米は世界一", nick:"日本米世界一"},
 	{levels:["8-", "11.2", ""],	score:[253000, 396500, 0],	name:"PERFECT HUMAN", nick:""},
 	{levels:["8+", "11.7", ""],	score:[366000, 533000, 0],	name:"SUSHI食べたい feat.ソイソース", nick:"SUSHI食べたい"},
 	{levels:["8-", "11.9", ""],	score:[266500, 395000, 0],	name:"ポップミュージックは僕のもの", nick:"ポップミュージック"},
@@ -353,7 +356,9 @@ var maimai_inner_lv = [
 	{levels:["(11-)", "12.8", ""],	score:[371500, 576500, 0],	name:"きたさいたま2000", nick:"きたさいたま"},
 	{levels:["9.6", "12.7", ""],	score:[316500, 509000, 0],	name:"Scars of FAUNA", nick:"FAUNA"},
 	{levels:["10-", "12.6", ""],	score:[338500, 572000, 0],	name:"FLOWER", nick:""},
-	{levels:["", "12.1", ""],	score:[0, 488500, 0],	name:"Signature", nick:""},
+	{levels:["11-", "(13-)", ""],	score:[474000, 639500, 0],	name:"Excalibur ～Revived resolution～", nick:"Excalibur"},
+	{levels:["", "12.0", ""],	score:[0, 510500, 0],	name:"Kinda Way", nick:""},
+	{levels:["10+", "12.1", ""],	score:[326500, 488500, 0],	name:"Signature", nick:""},
 	{levels:["9-", "12.2", ""],	score:[273500, 413000, 0],	name:"Magical Flavor", nick:""},
 	{levels:["(10.0)", "12.0", ""],	score:[400000, 598500, 0],	name:"ユビキリ", nick:""},
 	{levels:["10.5", "12.8", ""],	score:[378500, 509500, 0],	name:"デスパレイト", nick:""},
