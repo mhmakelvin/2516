@@ -2,7 +2,7 @@ javascript:
 (
 	function(j,f)
 	{
-		j=['https://noname258.github.io/2516/data.js',
+		j=['https://sgimera.github.io/mai_RatingAnalyzer/scripts/mai_inner_level_milk_lock.js',
 		   'https://noname258.github.io/2516/calc.js',
 		   'https://noname258.github.io/2516/body.js'];
 		f=function(s,u)
