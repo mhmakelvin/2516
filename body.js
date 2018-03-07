@@ -534,7 +534,7 @@ function tweet_best(id)
 function lv2tmp(lv)
 {
 	var olddata = ((lv.slice(0,1))=="(");
-	var tmplv = olddata?lv.slice(1,-1):mra_diff2tmp(lv);
+	var tmplv = olddata?lv.slice(1,-1):lv;
 
 	
 	return (olddata)?('('+tmplv+')'):tmplv;
