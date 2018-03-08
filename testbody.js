@@ -417,8 +417,6 @@ function print_result(golliramode, homeaddr)
 	result_str += "<li>カッコなしは小数第1位まであれば牛乳ver.で調査済みです。<br>無い物は未調査です。<\/li><\/ul>";
 	result_str += "<h3>単曲レート値について<\/h3>";
 	result_str += "<p>内部Lv.として表示している値で算出した値です。<\/p>";
-	result_str += "12, 12+, 13となっているものは、それぞれの最低値で算出してます。<\/p>";
-	
 	
 	
 	result_str += "<table border=1 align=\"center\">";
@@ -447,7 +445,8 @@ function print_result(golliramode, homeaddr)
 	
 			tmplv=(datalist[i].lv[2].slice(-1)=='-')?(datalist[i].lv[2].slice(0, -1)):
 				(datalist[i].lv[2].slice(-1)=='=')?(datalist[i].lv[2].slice(0, -1)):datalist[i].lv[2];
-			result_str += "<th class=mai_remaster>" + "mra_diff2tmp(tmplv)" + "<\/th>";
+			tmplv2=mra_diff2tmp(tmplv);
+			result_str += "<th class=mai_remaster>" + tmplv2 + "<\/th>";
 			result_str += "<th class=mai_remaster>" + (100*datalist[i].achive[2]).toFixed(4) + "%<\/th>";
 			result_str += "<\/tr>";
 			
@@ -474,7 +473,8 @@ function print_result(golliramode, homeaddr)
 			result_str += "<\/th>";
 
 			tmplv=(datalist[i].lv[0].slice(-1)=='-')?(datalist[i].lv[0].slice(0, -1)):datalist[i].lv[0];
-			result_str += "<th class=mai_expert>" + tmplv + "<\/th>";
+			tmplv2=mra_diff2tmp(tmplv);
+			result_str += "<th class=mai_expert>" + tmplv2 + "<\/th>";
 			result_str += "<th class=mai_expert>" + (100*datalist[i].achive[0]).toFixed(4) + "%<\/th>";
 			result_str += "<\/tr>";
 		}
