@@ -535,8 +535,22 @@ function lv2tmp(lv)
 {
 	var olddata = ((lv.slice(0,1))=="(");
 	var tmplv = olddata?lv.slice(1,-1):lv;
-
-	
+	if(isNaN(tmplv))
+	{
+		var i_part = Number(tmplv.slice(0,-1));
+		var d_part = (mra_diff2tmp(tmplv)-i_part).toFixed(1);
+		switch(i_part)
+		{
+			case 13:
+				tmplv = i_part + "-"; break;
+			case 12:
+				tmplv = i_part;
+				tmplv += (Number(d_part)>=0.7)?("+"):Number(d_part)>=0.3?("="):("-");
+				break;
+			default:
+				break;
+		}
+	}
 	return (olddata)?('('+tmplv+')'):tmplv;
 }
 	
