@@ -541,12 +541,6 @@ function lv2tmp(lv)
 		var d_part = (mra_diff2tmp(tmplv)-i_part).toFixed(1);
 		switch(i_part)
 		{
-			case 13:
-				tmplv = i_part + "-"; break;
-			case 12:
-				tmplv = i_part;
-				tmplv += (Number(d_part)>=0.7)?("+"):Number(d_part)>=0.3?("="):("-");
-				break;
 			default:
 				break;
 		}
