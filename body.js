@@ -545,7 +545,7 @@ function lv2tmp(lv)
 				break;
 		}
 	}
-	return (olddata)?('('+tmplv+')'):tmplv;
+	return (olddata)?('('+tmplv+')'):mra_diff2tmp(tmplv);
 }
 	
 function datalist_recalc()
