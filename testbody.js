@@ -445,7 +445,7 @@ function print_result(golliramode, homeaddr)
 	
 			tmplv=(datalist[i].lv[2].slice(-1)=='-')?(datalist[i].lv[2].slice(0, -1)):
 				(datalist[i].lv[2].slice(-1)=='=')?(datalist[i].lv[2].slice(0, -1)):datalist[i].lv[2];
-			tmplv2=mra_diff2tmp(tmplv);
+			tmplv2=mra_diff2tmp(tmplv).toFixed(1);
 			result_str += "<th class=mai_remaster>" + tmplv2 + "<\/th>";
 			result_str += "<th class=mai_remaster>" + (100*datalist[i].achive[2]).toFixed(4) + "%<\/th>";
 			result_str += "<\/tr>";
@@ -459,7 +459,7 @@ function print_result(golliramode, homeaddr)
 
 		tmplv=(datalist[i].lv[1].slice(-1)=='-')?(datalist[i].lv[1].slice(0, -1)):
 			(datalist[i].lv[1].slice(-1)=='=')?(datalist[i].lv[1].slice(0, -1)):datalist[i].lv[1];
-		tmplv2=mra_diff2tmp(tmplv);
+		tmplv2=mra_diff2tmp(tmplv).toFixed(1);
 		
 		result_str += "<th class=mai_master>" + tmplv2 + "<\/th>";
 		result_str += "<th class=mai_master>" + (100*datalist[i].achive[1]).toFixed(4) + "%<\/th>";
@@ -473,7 +473,7 @@ function print_result(golliramode, homeaddr)
 			result_str += "<\/th>";
 
 			tmplv=(datalist[i].lv[0].slice(-1)=='-')?(datalist[i].lv[0].slice(0, -1)):datalist[i].lv[0];
-			tmplv2=mra_diff2tmp(tmplv);
+			tmplv2=mra_diff2tmp(tmplv).toFixed(1);
 			result_str += "<th class=mai_expert>" + tmplv2 + "<\/th>";
 			result_str += "<th class=mai_expert>" + (100*datalist[i].achive[0]).toFixed(4) + "%<\/th>";
 			result_str += "<\/tr>";
