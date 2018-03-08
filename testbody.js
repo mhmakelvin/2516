@@ -583,7 +583,7 @@ tmpstr += maimai_inner_lv.length + "songs(" + mra_update_mlist + ") version\n";
 tmpstr += "Last Update : ";
 tmpstr += (mra_update_algorithm >= mra_update_llist)?mra_update_algorithm:mra_update_llist;
 tmpstr += "\n\n";
-tmpstr += "Programmed by @sgidddmsadsadera";
+tmpstr += "Programmed by Ludwig Wittgenstein";
 if(!confirm(tmpstr))
 	return;
 	
