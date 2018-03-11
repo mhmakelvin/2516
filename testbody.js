@@ -342,7 +342,7 @@ function print_result(golliramode, homeaddr)
 
 	result_str += print_result_rating("予想値", expect_max, "BEST枠、RECENT枠、HISTORY枠の合計",expect_max);
 	result_str +=
-		print_result_sub("BEST枠", best_rating + "<br>(" + best_left + ")", "(上位30曲の合計)/44<br>()は+0.01する為の必要レート");
+		print_result_rating("BEST枠", best_rating + "<br>(" + best_left + ")", "(上位30曲の合計)/44<br>()は+0.01する為の必要レート", best_ave);
 	result_str += print_result_rating("RECENT枠", recent_rating + "<br>(" + datalist[0].music_rate/100+ ")", "レート値1位を10回達成",datalist[0].music_rate/100);
 	result_str +=
 		print_result_sub("HISTORY枠", hist_rating + "<br>(" + hist_left + ")",
