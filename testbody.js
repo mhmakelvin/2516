@@ -302,7 +302,7 @@ function print_result_rating2(title, value, explain)
 	var value_tmp = value*4.4;
 	tmp += "<tr>";
 	tmp += "<th>" + title + "<\/th>";
-	tmp += "<td align=center class=" + get_ratingrank(value_tmp) + ">" + value + "<\/td>"
+	tmp += "<td align=center class=" + get_ratingrank(value_tmp) + ">" + value + "<br>(" + datalist[0].music_rate + ")" + "<\/td>"
 	tmp += "<td>" + explain + "<\/td>";
 	tmp += "<\/tr>";
 	
