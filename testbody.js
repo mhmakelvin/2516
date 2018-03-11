@@ -302,7 +302,7 @@ function print_result_rating2(title, value, explain)
 	var value_tmp = value*4.4;
 	tmp += "<tr>";
 	tmp += "<th>" + title + "<\/th>";
-	tmp += "<td align=center class=" + get_ratingrank(value_tmp) + ">" + value + "<br>(" + datalist[0].music_rate + ")" + "<\/td>"
+	tmp += "<td align=center class=" + get_ratingrank(value_tmp) + ">" + value + "<\/td>"
 	tmp += "<td>" + explain + "<\/td>";
 	tmp += "<\/tr>";
 	
@@ -355,7 +355,7 @@ function print_result(golliramode, homeaddr)
 	result_str += print_result_rating("予想値", expect_max, "BEST枠、RECENT枠、HISTORY枠の合計");
 	result_str +=
 		print_result_sub("BEST枠", best_rating + "<br>(" + best_left + ")", "(上位30曲の合計)/44<br>()は+0.01する為の必要レート");
-	result_str += print_result_rating2("RECENT枠", recent_rating, "レート値1位を10回達成");
+	result_str += print_result_rating2("RECENT枠", recent_rating + "<br>(" + datalist[0].music_rate/100+ ")", "レート値1位を10回達成");
 	result_str +=
 		print_result_sub("HISTORY枠", hist_rating + "<br>(" + hist_left + ")",
 				 "(上位" + mra_history +"曲の合計)/(" + mra_history + "*44/4)<br>()は+0.01する為の必要レート");
