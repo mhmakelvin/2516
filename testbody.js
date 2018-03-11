@@ -296,7 +296,7 @@ function print_result_rating(title, value, explain)
 	
 	return tmp;
 }
-function print_result_rating(title, value, explain)
+function print_result_rating2(title, value, explain)
 {
 	var tmp = "";
 	var value_tmp=Math.ceil(value*44/10);
