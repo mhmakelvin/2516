@@ -608,7 +608,7 @@ else
 	
 	collection_filter(clist);
 	
-	data2rating(gollira);	// データ集計
+	var top_rate_value = data2rating(gollira);	// データ集計
 	
 	analyzing_rating();	// 全体データ算出
 	
@@ -616,6 +616,6 @@ else
 	if(hashtag.slice(-4)=="test")
   tweet_best();	//tweet用文言生成
 	
-	print_result(gollira, addr);	//全譜面リスト表示
+	print_result(gollira, addr, top_rate_value);	//全譜面リスト表示
 
 })(); void(0);
