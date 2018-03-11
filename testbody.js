@@ -299,7 +299,7 @@ function print_result_rating(title, value, explain)
 function print_result_rating2(title, value, explain)
 {
 	var tmp = "";
-	var value_tmp = Math.ceil(value*4.4);
+	var value_tmp = value*4.4;
 	tmp += "<tr>";
 	tmp += "<th>" + title + "<\/th>";
 	tmp += "<td align=center class=" + get_ratingrank(value_tmp) + ">" + value + "<\/td>"
