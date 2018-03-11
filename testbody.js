@@ -285,24 +285,12 @@ function print_result_sub(title, value, explain)
 	return tmp;
 }
 
-function print_result_rating(title, value, explain)
+function print_result_rating(title, value, explain, disp)
 {
 	var tmp = "";
 	tmp += "<tr>";
 	tmp += "<th>" + title + "<\/th>";
-	tmp += "<td align=center class=" + get_ratingrank(value) + ">" + value + "<\/td>"
-	tmp += "<td>" + explain + "<\/td>";
-	tmp += "<\/tr>";
-	
-	return tmp;
-}
-function print_result_rating2(title, value, explain)
-{
-	var tmp = "";
-	var value_tmp = value*4.4;
-	tmp += "<tr>";
-	tmp += "<th>" + title + "<\/th>";
-	tmp += "<td align=center class=" + get_ratingrank(value_tmp) + ">" + value + "<\/td>"
+	tmp += "<td align=center class=" + get_ratingrank(disp) + ">" + value + "<\/td>"
 	tmp += "<td>" + explain + "<\/td>";
 	tmp += "<\/tr>";
 	
@@ -344,18 +332,18 @@ function print_result(golliramode, homeaddr)
 	result_str += "<td>maimai.netで確認できるRating<\/td>";
 	result_str += "<\/tr>";
 
-	result_str += print_result_rating("BEST平均", best_ave, "上位30曲の平均レート値");
-	result_str += print_result_rating("BEST下限", best_limit, "30位のレート値");
+	result_str += print_result_rating("BEST平均", best_ave, "上位30曲の平均レート値", best_ave);
+	result_str += print_result_rating("BEST下限", best_limit, "30位のレート値", best_limit);
 	result_str += print_result_sub("HIST下限", hist_limit, mra_history + "位のレート値");
 
 	result_str += "<tr>";
 	result_str += "<th colspan=3 bgcolor=\"\#000000\"><font color=\"\#ffffff\">予想到達可能Rating<\/font><\/th>";
 	result_str += "<\/tr>";
 
-	result_str += print_result_rating("予想値", expect_max, "BEST枠、RECENT枠、HISTORY枠の合計");
+	result_str += print_result_rating("予想値", expect_max, "BEST枠、RECENT枠、HISTORY枠の合計",expect_max);
 	result_str +=
 		print_result_sub("BEST枠", best_rating + "<br>(" + best_left + ")", "(上位30曲の合計)/44<br>()は+0.01する為の必要レート");
-	result_str += print_result_rating2("RECENT枠", recent_rating + "<br>(" + datalist[0].music_rate/100+ ")", "レート値1位を10回達成");
+	result_str += print_result_rating("RECENT枠", recent_rating + "<br>(" + datalist[0].music_rate/100+ ")", "レート値1位を10回達成",datalist[0].music_rate/100);
 	result_str +=
 		print_result_sub("HISTORY枠", hist_rating + "<br>(" + hist_left + ")",
 				 "(上位" + mra_history +"曲の合計)/(" + mra_history + "*44/4)<br>()は+0.01する為の必要レート");
