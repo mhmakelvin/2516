@@ -1,10 +1,11 @@
+
 javascript:
 (function()
 {
 
 var ex_list=[], ma_list=[], re_list=[], datalist=[], clist=[], ranklist=[], complist=[], addr="", your_id="", your_rating="";
 var hashtag = "%e8%88%9e%e3%83%ac%e3%83%bc%e3%83%88%e8%a7%a3%e6%9e%90";	// 舞レート解析
-var mra_update_algorithm = "2018.02.24";
+var mra_update_algorithm = "2018.03.24";
 
 var best_ave=0, best_limit=0, hist_limit=0;
 var expect_max=0, best_rating=0, top_rate=0, recent_rating=0, hist_rating=0, best_left=0, hist_left=0;
@@ -107,12 +108,14 @@ function get_collection_data(collection_list, addr, number)	//データ取得と
 	return nextaddr;
 }
 
+
 function true_achive(score, score100per)
 {
+	var true_100per=score100per - (score100per%500)
 	if(score == "---" || score100per == 0)
 		return 0;
 	else
-		return Number(score)/score100per;
+		return Number(score)/(score100per - (score100per%500));
 }
 	
 function sort_condition(a,b)
@@ -133,6 +136,20 @@ function sort_condition(a,b)
 	achi_b=Math.max.apply(null, b.achive);
 	return achi_b - achi_a;
 }	
+	
+function true_level(lvlist, scorelist)
+{
+	var levellist=[], tmplv=0;
+	for(var n=0; n<3; n++)
+	{
+		tmplv=mra_diff2tmp(lvlist[n]);
+		(Math.floor(tmplv)<12||scorelist[n]%500==0)?(levellist.push(lvlist[n])):
+		(levellist.push(Math.floor(tmplv) + "." + [20,60,30,21,17,35,50,28,55,65].indexOf((scorelist[n]/5)%100-2*Math.floor(tmplv))));
+	}
+	
+	return levellist;
+}
+	
 function data2rating(golliramode)
 {
 	var mlist_length=ma_list.length, re_length=re_list.length, re_count=0, lvlist_count=0;
@@ -150,7 +167,7 @@ function data2rating(golliramode)
 				(re_count >= re_length)?"---":
 					(re_list[re_count][0]==ma_list[i][0])?
 						true_achive(re_list[re_count++][1], maimai_inner_lv[lvlist_count].score[2]):"---"],
-				lv:maimai_inner_lv[lvlist_count].levels,
+				lv:true_level(maimai_inner_lv[lvlist_count].levels, maimai_inner_lv[lvlist_count].score),
 				rate_values:[0,	0, 0],
 				music_rate : 0
 			});
@@ -284,12 +301,12 @@ function print_result_sub(title, value, explain)
 	return tmp;
 }
 
-function print_result_rating(title, value, explain)
+function print_result_rating(title, value, explain, disp)
 {
 	var tmp = "";
 	tmp += "<tr>";
 	tmp += "<th>" + title + "<\/th>";
-	tmp += "<td align=center class=" + get_ratingrank(value) + ">" + value + "<\/td>"
+	tmp += "<td align=center class=" + get_ratingrank(disp) + ">" + value + "<\/td>"
 	tmp += "<td>" + explain + "<\/td>";
 	tmp += "<\/tr>";
 	
@@ -331,18 +348,18 @@ function print_result(golliramode, homeaddr)
 	result_str += "<td>maimai.netで確認できるRating<\/td>";
 	result_str += "<\/tr>";
 
-	result_str += print_result_rating("BEST平均", best_ave, "上位30曲の平均レート値");
-	result_str += print_result_rating("BEST下限", best_limit, "30位のレート値");
+	result_str += print_result_rating("BEST平均", best_ave, "上位30曲の平均レート値", best_ave);
+	result_str += print_result_rating("BEST下限", best_limit, "30位のレート値", best_limit);
 	result_str += print_result_sub("HIST下限", hist_limit, mra_history + "位のレート値");
 
 	result_str += "<tr>";
 	result_str += "<th colspan=3 bgcolor=\"\#000000\"><font color=\"\#ffffff\">予想到達可能Rating<\/font><\/th>";
 	result_str += "<\/tr>";
 
-	result_str += print_result_rating("予想値", expect_max, "BEST枠、RECENT枠、HISTORY枠の合計");
+	result_str += print_result_rating("予想値", expect_max, "BEST枠、RECENT枠、HISTORY枠の合計",expect_max);
 	result_str +=
-		print_result_sub("BEST枠", best_rating + "<br>(" + best_left + ")", "(上位30曲の合計)/44<br>()は+0.01する為の必要レート");
-	result_str += print_result_sub("RECENT枠", recent_rating, "レート値1位を10回達成");
+		print_result_rating("BEST枠", best_rating + "<br>(" + best_left + ")", "(上位30曲の合計)/44<br>()は+0.01する為の必要レート", best_ave);
+	result_str += print_result_rating("RECENT枠", recent_rating + "<br>(" + datalist[0].music_rate/100+ ")", "レート値1位を10回達成",datalist[0].music_rate/100);
 	result_str +=
 		print_result_sub("HISTORY枠", hist_rating + "<br>(" + hist_left + ")",
 				 "(上位" + mra_history +"曲の合計)/(" + mra_history + "*44/4)<br>()は+0.01する為の必要レート");
@@ -417,8 +434,6 @@ function print_result(golliramode, homeaddr)
 	result_str += "<li>カッコなしは小数第1位まであれば牛乳ver.で調査済みです。<br>無い物は未調査です。<\/li><\/ul>";
 	result_str += "<h3>単曲レート値について<\/h3>";
 	result_str += "<p>内部Lv.として表示している値で算出した値です。<\/p>";
-	result_str += "12, 12+, 13となっているものは、それぞれの最低値で算出してます。<\/p>";
-	
 	
 	
 	result_str += "<table border=1 align=\"center\">";
@@ -445,8 +460,7 @@ function print_result(golliramode, homeaddr)
 			result_str += (datalist[i].rate_values[2]/100).toFixed(2);
 			result_str += "<\/th>";
 	
-			tmplv=(datalist[i].lv[2].slice(-1)=='-')?(datalist[i].lv[2].slice(0, -1)):
-				(datalist[i].lv[2].slice(-1)=='=')?(datalist[i].lv[2].slice(0, -1)):datalist[i].lv[2];
+			tmplv=datalist[i].lv[2];
 			result_str += "<th class=mai_remaster>" + tmplv + "<\/th>";
 			result_str += "<th class=mai_remaster>" + (100*datalist[i].achive[2]).toFixed(4) + "%<\/th>";
 			result_str += "<\/tr>";
@@ -458,8 +472,7 @@ function print_result(golliramode, homeaddr)
 			result_str += (datalist[i].rate_values[1]/100).toFixed(2);
 		result_str += "<\/th>";
 
-		tmplv=(datalist[i].lv[1].slice(-1)=='-')?(datalist[i].lv[1].slice(0, -1)):
-			(datalist[i].lv[1].slice(-1)=='=')?(datalist[i].lv[1].slice(0, -1)):datalist[i].lv[1];
+		tmplv=datalist[i].lv[2];
 		
 		result_str += "<th class=mai_master>" + tmplv + "<\/th>";
 		result_str += "<th class=mai_master>" + (100*datalist[i].achive[1]).toFixed(4) + "%<\/th>";
@@ -472,7 +485,7 @@ function print_result(golliramode, homeaddr)
 			result_str += (datalist[i].rate_values[0]/100).toFixed(2);
 			result_str += "<\/th>";
 
-			tmplv=(datalist[i].lv[0].slice(-1)=='-')?(datalist[i].lv[0].slice(0, -1)):datalist[i].lv[0];
+			tmplv=datalist[i].lv[2];
 			result_str += "<th class=mai_expert>" + tmplv + "<\/th>";
 			result_str += "<th class=mai_expert>" + (100*datalist[i].achive[0]).toFixed(4) + "%<\/th>";
 			result_str += "<\/tr>";
@@ -531,52 +544,6 @@ function tweet_best(id)
 
 }
 
-function lv2tmp(lv)
-{
-	var olddata = ((lv.slice(0,1))=="(");
-	var tmplv = olddata?lv.slice(1,-1):lv;
-	if(isNaN(tmplv))
-	{
-		var i_part = Number(tmplv.slice(0,-1));
-		var d_part = (mra_diff2tmp(tmplv)-i_part).toFixed(1);
-		switch(i_part)
-		{
-			default:
-				break;
-		}
-	}
-	return (olddata)?('('+tmplv+')'):mra_diff2tmp(tmplv);
-}
-	
-function datalist_recalc()
-{
-	var listlength=datalist.length, tmplv="", count=0;
-	
-	for(var i=0; i<listlength; i++)
-	{
-		tmplv=datalist[i].lv[2];
-		if( (tmplv != "") && isNaN(tmplv) && (tmplv.slice(0,1)!="("))
-		{
-			// re:masterあり
-			datalist[i].lv[2]= lv2tmp(tmplv);
-			datalist[i].rate_values[2] = mra_arch2rate_100(datalist[i].achive[2], datalist[i].lv[2]);
-		}
-
-		tmplv=datalist[i].lv[1];
-		if( isNaN(tmplv) && (tmplv.slice(0,1)!="("))	//条件復活の可能性を考慮
-		{
-			datalist[i].lv[1]= lv2tmp(tmplv);
-			datalist[i].rate_values[1] = mra_arch2rate_100(datalist[i].achive[1], datalist[i].lv[1]);
-		}
-		
-		// 曲別レート値の最大が変化するので再計算。
-		datalist[i].music_rate = Math.max.apply(null, datalist[i].rate_values);
-	}
-	
-	datalist.sort(sort_condition);
-	return count;
-
-}
 	
 function analyzing_rating()
 {
@@ -628,7 +595,7 @@ tmpstr += maimai_inner_lv.length + "songs(" + mra_update_mlist + ") version\n";
 tmpstr += "Last Update : ";
 tmpstr += (mra_update_algorithm >= mra_update_llist)?mra_update_algorithm:mra_update_llist;
 tmpstr += "\n\n";
-tmpstr += "Programmed by @sgimera";
+tmpstr += "Programmed by Ludwig Wittgenstein";
 if(!confirm(tmpstr))
 	return;
 	
@@ -658,10 +625,8 @@ else
 	analyzing_rating();	// 全体データ算出
 	
 	// 再計算。未検証扱いの譜面は最低値になる。全譜面データ表示用で、到達Ratingの計算への影響はない。
-	if(hashtag.slice(-4)!="test")
-		datalist_recalc();
-	else
-		tweet_best();	//tweet用文言生成
+	if(hashtag.slice(-4)=="test")
+  tweet_best();	//tweet用文言生成
 	
 	print_result(gollira, addr);	//全譜面リスト表示
 
