@@ -472,7 +472,7 @@ function print_result(golliramode, homeaddr)
 			result_str += (datalist[i].rate_values[1]/100).toFixed(2);
 		result_str += "<\/th>";
 
-		tmplv=datalist[i].lv[2];
+		tmplv=datalist[i].lv[1];
 		
 		result_str += "<th class=mai_master>" + tmplv + "<\/th>";
 		result_str += "<th class=mai_master>" + (100*datalist[i].achive[1]).toFixed(4) + "%<\/th>";
@@ -485,7 +485,7 @@ function print_result(golliramode, homeaddr)
 			result_str += (datalist[i].rate_values[0]/100).toFixed(2);
 			result_str += "<\/th>";
 
-			tmplv=datalist[i].lv[2];
+			tmplv=datalist[i].lv[0];
 			result_str += "<th class=mai_expert>" + tmplv + "<\/th>";
 			result_str += "<th class=mai_expert>" + (100*datalist[i].achive[0]).toFixed(4) + "%<\/th>";
 			result_str += "<\/tr>";
