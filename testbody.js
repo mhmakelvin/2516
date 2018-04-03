@@ -20,7 +20,7 @@ var disp_all = false, friendmode = false; /* 動作モード系 */
 
 var hashtag = "%e8%88%9e%e3%83%ac%e3%83%bc%e3%83%88%e8%a7%a3%e6%9e%90";	// 舞レート解析
 var mainet_dom = 'https://maimai-net.com/maimai-mobile/';
-var mra_update_algorithm = "2018.04.071";
+var mra_update_algorithm = "2018.04.01";
 
 var tweet_rate_str="", 	tweet_best_str="";
 
