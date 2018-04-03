@@ -575,8 +575,6 @@ function print_result_friend()
 			tmplv=frd_datalist[i].lv[2];
 			rslt_str += "<th class=mai_remaster>" + tmplv + "<\/th>";
 			rslt_str += "<th class=mai_remaster>" + (100*frd_datalist[i].achive[2]).toFixed(4) + "%<\/th>";
-			if(hashtag.slice(-4)=="test")
-				rslt_str += "<td class=mai_remaster>" + (frd_datalist[i].shortage[2]) + "<\/td>";
 			rslt_str += "<\/tr>";
 			
 			rslt_str += "<tr>";
@@ -590,8 +588,6 @@ function print_result_friend()
 		
 		rslt_str += "<th class=mai_master>" + tmplv + "<\/th>";
 		rslt_str += "<th class=mai_master>" + (100*frd_datalist[i].achive[1]).toFixed(4) + "%<\/th>";
-		if(hashtag.slice(-4)=="test")
-			rslt_str += "<td class=mai_master>" + (frd_datalist[i].shortage[1]) + "<\/td>";
 		rslt_str += "<\/tr>";
 
 		rslt_str += "<tr>";
@@ -602,8 +598,6 @@ function print_result_friend()
 		tmplv=frd_datalist[i].lv[0];
 		rslt_str += "<th class=mai_expert>" + tmplv + "<\/th>";
 		rslt_str += "<th class=mai_expert>" + (100*frd_datalist[i].achive[0]).toFixed(4) + "%<\/th>";
-		if(hashtag.slice(-4)=="test")
-			rslt_str += "<td class=mai_expert>" + (frd_datalist[i].shortage[0]) + "<\/td>";
 		rslt_str += "<\/tr>";
 	}
 	
@@ -807,8 +801,6 @@ function print_result()
 			tmplv=datalist[i].lv[2]
 			rslt_str += "<th class=mai_remaster>" + tmplv + "<\/th>";
 			rslt_str += "<th class=mai_remaster>" + (100*datalist[i].achive[2]).toFixed(4) + "%<\/th>";
-			if(hashtag.slice(-4)=="test")
-				rslt_str += "<td class=mai_remaster>" + (datalist[i].shortage[2]) + "<\/td>";
 			rslt_str += "<\/tr>";
 			
 			rslt_str += "<tr>";
@@ -822,8 +814,6 @@ function print_result()
 		
 		rslt_str += "<th class=mai_master>" + tmplv + "<\/th>";
 		rslt_str += "<th class=mai_master>" + (100*datalist[i].achive[1]).toFixed(4) + "%<\/th>";
-		if(hashtag.slice(-4)=="test")
-			rslt_str += "<td class=mai_master>" + (datalist[i].shortage[1]) + "<\/td>";
 		rslt_str += "<\/tr>";
 
 		rslt_str += "<tr>";
@@ -834,8 +824,6 @@ function print_result()
 		tmplv=datalist[i].lv[0]
 		rslt_str += "<th class=mai_expert>" + tmplv + "<\/th>";
 		rslt_str += "<th class=mai_expert>" + (100*datalist[i].achive[0]).toFixed(4) + "%<\/th>";
-		if(hashtag.slice(-4)=="test")
-			rslt_str += "<td class=mai_expert>" + (datalist[i].shortage[0]) + "<\/td>";
 		rslt_str += "<\/tr>";
 	}
 	
