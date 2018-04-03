@@ -273,7 +273,7 @@ function data2rating(dlist, f) /* 1:自分, 2:フレンド */
 			}
 		}
 	}
-	return dlist[0].music_rate;
+	return;
 }
 	
 function current_rank()
@@ -804,7 +804,7 @@ function print_result()
 			rslt_str += (datalist[i].rate_values[2]/100).toFixed(2);
 			rslt_str += "<\/th>";
 	
-			tmplv=dlist[i].lv[2]
+			tmplv=datalist[i].lv[2]
 			rslt_str += "<th class=mai_remaster>" + tmplv + "<\/th>";
 			rslt_str += "<th class=mai_remaster>" + (100*datalist[i].achive[2]).toFixed(4) + "%<\/th>";
 			if(hashtag.slice(-4)=="test")
@@ -818,7 +818,7 @@ function print_result()
 		rslt_str += (datalist[i].rate_values[1]/100).toFixed(2);
 		rslt_str += "<\/th>";
 
-		tmplv=dlist[i].lv[1]
+		tmplv=datalist[i].lv[1]
 		
 		rslt_str += "<th class=mai_master>" + tmplv + "<\/th>";
 		rslt_str += "<th class=mai_master>" + (100*datalist[i].achive[1]).toFixed(4) + "%<\/th>";
@@ -831,7 +831,7 @@ function print_result()
 		rslt_str += (datalist[i].rate_values[0]/100).toFixed(2);
 		rslt_str += "<\/th>";
 
-		tmplv=dlist[i].lv[0]
+		tmplv=datalist[i].lv[0]
 		rslt_str += "<th class=mai_expert>" + tmplv + "<\/th>";
 		rslt_str += "<th class=mai_expert>" + (100*datalist[i].achive[0]).toFixed(4) + "%<\/th>";
 		if(hashtag.slice(-4)=="test")
