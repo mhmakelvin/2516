@@ -260,19 +260,6 @@ function data2rating(dlist, f) /* 1:自分, 2:フレンド */
 		}
 	}
 	dlist.sort(sort_condition);
-
-	if(hashtag.slice(-4)=="test")
-	{
-		best_limit = dlist[29].music_rate;
-		for(var i=30; i<mlist_length; i++)
-		{
-			for(var x=0; x<3; x++)
-			{
-				dlist[i].shortage[x] =
-					mra_shortage_achive(best_limit, dlist[i].lv[x], dlist[i].achive[x])
-			}
-		}
-	}
 	return;
 }
 	
