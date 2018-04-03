@@ -382,17 +382,7 @@ function frddata_copy()
 	
 function uso_level(lv)
 {
-	switch(lv.slice(-1))
-	{
-		case "+":
-		case "-":
-		case ")":
-			return lv;
-		default:
-			break;
-	}
-	var tmplv=mra_diff2tmp(lv);
-	return (tmplv>=13)?"13-":(tmplv>=12.7)?"12+":(tmplv>=12.3)?"12=":(tmplv>=12)?"12-":lv;
+	return lv;
 }
 		
 	
