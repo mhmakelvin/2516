@@ -683,7 +683,6 @@ function print_result_friend()
 	
 	rslt_str += "<body>";
 	rslt_str += "<p align=right><a href='" + mainet_dom + "friend/'>maimai.net HOMEに戻る</a></p>";
-	rslt_str += print_result_sub_print_title("(friend)");
 	rslt_str += "<h2 align=center>" + your_id + rankname + "<br>vs<br>" + frd_id + frd_rankname + "</h2>";
 	
 	var today = new Date();
@@ -731,11 +730,6 @@ function print_result_friend()
 	rslt_str += print_result_friend_sub
 		("HISTORY枠", hist_rating + "<br>(" + (hist_left.toFixed(2)) + ")", 
 		 frd_hist_rating + "<br>(" + (frd_hist_left.toFixed(2)) + ")");
-
-	rslt_str += "<tr><th colspan=3 bgcolor='#000000'><font color='#ffffff'>参考値</font></th></tr>";
-	rslt_str += print_result_rating_friend
-		("旧形式換算", old_rule_rating.toFixed(2), old_rule_rating,
-			frd_old_rule_rating.toFixed(2), frd_old_rule_rating);	
 	rslt_str += "</table>";
 
 	if(hashtag.slice(-4)=="test")
@@ -793,7 +787,6 @@ function print_result()
 	data_str += (("0"+today.getHours()).slice(-2)) + ":" + (("0"+today.getMinutes()).slice(-2)) + ":" + (("0"+today.getSeconds()).slice(-2));
 	
 	rslt_str += "<p align=right><a href='" + mainet_dom + "home'>maimai.net HOMEに戻る</a></p>";
-	rslt_str += print_result_sub_print_title("(trial)");
 	
 	rslt_str += "<h2 align=center>" + your_id + rankname + "</h2>";
 	if(hashtag.slice(-4)=="test")
@@ -846,9 +839,7 @@ function print_result()
 	rslt_str +=
 		print_result_sub("HISTORY<br>枠", hist_rating + "<br>(" + (hist_left.toFixed(2)) + ")",
 				 "(上位" + mra_history +"曲の合計)*(4/" + mra_history + ")/44<br>()は+0.01する為の必要レート");
-	rslt_str += "<tr><th colspan=3 bgcolor='#000000'><font color='#ffffff'>参考値</font></th></tr>";
-	rslt_str += print_result_rating("旧形式換算", old_rule_rating.toFixed(2),
-					"旧方式での現時点でのRating<br>到達可能ではない", old_rule_rating);
+	
 	rslt_str += "</table>";
 	rslt_str += "<p align=center>※RECENT平均は予測到達可能には影響しません。<br>あくまで現状の確認。</p>";
 
@@ -929,18 +920,7 @@ function print_result()
 	
 	rslt_str += "<h2 align=center>全譜面レート値データ</h2>";
 
-	if(hashtag.slice(-4)!="test")
-	{
-	rslt_str += "<p align=center>寝言サイトにも書いてますが、<b>ただの飾り</b>です。参考情報。</p>";
-	rslt_str += "<table class=alltable align=center border=1>";
-	rslt_str += "<tr><th colspan=2></th> <td>カッコあり</td> <td>カッコなし</td></tr>";
-	rslt_str += "<tr><th rowspan=2>Re:Master<br>Master</th><th>12以上</th>";
-	rslt_str += "<td><font color=red>未検証</font></td><td>検証済み<br>ゲーム内表示Lv.で表記</td></tr>";
-	rslt_str += "<tr><th>11+以下</th><td><font color=red>未検証</font><br>暫定で紫+ver.の値</td><td>調査済みの値</td></tr>";
-	rslt_str += "<tr><th colspan=2>Expert</th><td><font color=red>未検証</font><br>暫定で紫+ver.の値</font></td>";
-	rslt_str += "<td>小数点有なら検証済み<br>小数点無は<font color=red>未検証</font></td></tr>";
-	rslt_str += "</table><br><br>";
-	}
+
 //	else
 //	{
 //	rslt_str += "<p align=center>";
