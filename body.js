@@ -829,7 +829,7 @@ function print_result()
 	rslt_str += print_result_rating("RECENT<br>50平均※", your_recent_ave +'<br>('+ your_r_waku + ')',
 			"直近50譜面の上位10譜面平均<br>()内はR枠換算 参考値:" + your_recent, your_recent_ave);
 	// rslt_str += print_result_rating("RECENT<br>44平均※", your_recent_ave44 +'<br>('+ your_r_waku44 + ')',
-			"直近40譜面の上位10譜面平均<br>()内はR枠換算", your_recent_ave44);
+	//		"直近40譜面の上位10譜面平均<br>()内はR枠換算", your_recent_ave44);
 	rslt_str += print_result_rating("RECENT<br>30平均※", your_recent_ave30 +'<br>('+ your_r_waku30 + ')',
 			"直近30譜面の上位10譜面平均<br>()内はR枠換算", your_recent_ave30);
 	rslt_str += print_result_rating("BEST下限", best_limit, "30位のレート値", best_limit);
@@ -925,6 +925,7 @@ function print_result()
 	}
 	rslt_str += "</table>";
 	}
+	
 	
 	rslt_str += "<h2 align=center>全譜面レート値データ</h2>";
 
