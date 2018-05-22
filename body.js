@@ -496,11 +496,11 @@ function analysis_playdata()
 	your_recent_ave=(Math.floor(rcnt50/10)/100).toFixed(2);
 	your_r_waku=(Math.floor(rcnt50/44)/100).toFixed(2);
 	
-	play_hist40=play_hist.slice(0,40);
-	play_hist40.sort(function(a,b){return b.rate_value-a.rate_value;});
-	rcnt40=analysis_playdata_sub_calc_ave(play_hist40);
-	your_recent_ave40=(Math.floor(rcnt40/10)/100).toFixed(2);
-	your_r_waku40=(Math.floor(rcnt40/44)/100).toFixed(2);
+	play_hist44=play_hist.slice(0,44);
+	play_hist44.sort(function(a,b){return b.rate_value-a.rate_value;});
+	rcnt44=analysis_playdata_sub_calc_ave(play_hist44);
+	your_recent_ave44=(Math.floor(rcnt44/10)/100).toFixed(2);
+	your_r_waku44=(Math.floor(rcnt44/44)/100).toFixed(2);
 	
 	
 	play_hist30=play_hist.slice(0,30);
@@ -828,8 +828,8 @@ function print_result()
 	rslt_str += print_result_rating("BEST平均", best_ave, "上位30曲の平均レート値", best_ave);
 	rslt_str += print_result_rating("RECENT<br>50平均※", your_recent_ave +'<br>('+ your_r_waku + ')',
 			"直近50譜面の上位10譜面平均<br>()内はR枠換算 参考値:" + your_recent, your_recent_ave);
-	rslt_str += print_result_rating("RECENT<br>40平均※", your_recent_ave40 +'<br>('+ your_r_waku40 + ')',
-			"直近40譜面の上位10譜面平均<br>()内はR枠換算", your_recent_ave40);
+	rslt_str += print_result_rating("RECENT<br>44平均※", your_recent_ave44 +'<br>('+ your_r_waku44 + ')',
+			"直近40譜面の上位10譜面平均<br>()内はR枠換算", your_recent_ave44);
 	rslt_str += print_result_rating("RECENT<br>30平均※", your_recent_ave30 +'<br>('+ your_r_waku30 + ')',
 			"直近30譜面の上位10譜面平均<br>()内はR枠換算", your_recent_ave30);
 	rslt_str += print_result_rating("BEST下限", best_limit, "30位のレート値", best_limit);
