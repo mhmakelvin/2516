@@ -610,23 +610,21 @@ function print_result_sub_print_datalist(dlist, datedata, id, dan)
 		re_r=dlist[i].rate_values[2]; ma_r=dlist[i].rate_values[1]; ex_r=dlist[i].rate_values[0];
 		
 		/* タイトル */
-		if(dlist[i].lv[2] != "" && dlist[i].achive[2] != "---" && dlist[i].achive[2] != 0)
+		if(dlist[i].lv[2] != "" && dlist[i].achive[2] != "---")
 		{
 			rowspan_num++;
 			restr = print_result_sub_print_data(dlist[i], 2, "mai_remaster");
 		}
 	
-		if(dlist[i].achive[1] != 0)	/* 0なら未プレー */
-		{
+		
 			rowspan_num++;
 			mastr = print_result_sub_print_data(dlist[i], 1, "mai_master")
-		}
+		
 
-		if(rowspan_num==0 || Math.max(re_r, ma_r) < mra_arch2rate_100(1, dlist[i].lv[0]))	/* 0なら未プレー */
-		{
+	
 			rowspan_num++;
 			exstr = print_result_sub_print_data(dlist[i], 0, "mai_expert");
-		}
+		
 
 		rslt_str += "<tr><th colspan=" + allspan + " class=music_title>" + dlist[i].name + "</th></tr>"
 		rslt_str += "<tr>";
@@ -828,7 +826,7 @@ function print_result()
 	rslt_str += print_result_rating("BEST平均", best_ave, "上位30曲の平均レート値", best_ave);
 	rslt_str += print_result_rating("RECENT<br>50平均※", your_recent_ave +'<br>('+ your_r_waku + ')',
 			"直近50譜面の上位10譜面平均<br>()内はR枠換算 参考値:" + your_recent, your_recent_ave);
-	rslt_str += print_result_rating("RECENT<br>44平均※", your_recent_ave44 +'<br>('+ your_r_waku44 + ')',
+	// rslt_str += print_result_rating("RECENT<br>44平均※", your_recent_ave44 +'<br>('+ your_r_waku44 + ')',
 			"直近40譜面の上位10譜面平均<br>()内はR枠換算", your_recent_ave44);
 	rslt_str += print_result_rating("RECENT<br>30平均※", your_recent_ave30 +'<br>('+ your_r_waku30 + ')',
 			"直近30譜面の上位10譜面平均<br>()内はR枠換算", your_recent_ave30);
@@ -890,7 +888,7 @@ function print_result()
 	ranklist=null;
 	complist=null;
 
-	if(hashtag.slice(-4)=="test")
+	if(hashtag.slice(-4)!="test")
 	{
 	rslt_str += "<h2 align=center>Recent情報</h2>";
 	rslt_str += "<table align=center border=1 class=datatable>";
