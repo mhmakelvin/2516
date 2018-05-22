@@ -616,14 +616,10 @@ function print_result_sub_print_datalist(dlist, datedata, id, dan)
 			restr = print_result_sub_print_data(dlist[i], 2, "mai_remaster");
 		}
 	
-		
-			rowspan_num++;
-			mastr = print_result_sub_print_data(dlist[i], 1, "mai_master")
-		
-
-	
-			rowspan_num++;
-			exstr = print_result_sub_print_data(dlist[i], 0, "mai_expert");
+		rowspan_num++;
+		mastr = print_result_sub_print_data(dlist[i], 1, "mai_master");
+		rowspan_num++;
+		exstr = print_result_sub_print_data(dlist[i], 0, "mai_expert");
 		
 
 		rslt_str += "<tr><th colspan=" + allspan + " class=music_title>" + dlist[i].name + "</th></tr>"
