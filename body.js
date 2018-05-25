@@ -735,7 +735,7 @@ function print_result_friend()
 		 frd_hist_rating + "<br>(" + (frd_hist_left.toFixed(2)) + ")");
 	rslt_str += "</table>";
 
-	if(hashtag.slice(-4)=="test")
+	if(hashtag.slice(-4)!="test")
 	{
 		rslt_str += "<h2 align=center>" + frd_id + "全譜面データ</h2>";
 		rslt_str += print_result_sub_print_datalist(frd_datalist, data_str, frd_id, frd_rankname);
@@ -985,6 +985,17 @@ function tweet_best(dlist)
 if(location.href == mainet_dom+"friend/friendProfile")
 	friendmode = true;
 
+var tmpstr = "--舞レート解析・あならいざもどき--\n";
+tmpstr += (friendmode)?(" フレンドモード \n"):(""); 
+tmpstr += (hashtag.slice(-4)!="test")?("(trial)\n\n"):("(test)\n\n");
+tmpstr += maimai_inner_lv.length + "songs(" + mra_update_mlist + ") version\n";
+tmpstr += "Last Update : ";
+tmpstr += (mra_update_algorithm >= mra_update_llist)?mra_update_algorithm:mra_update_llist;
+// tmpstr += "\n\n";
+// tmpstr += "Programmed by Ludwig Josef Johann Wittgenstein";
+if(!confirm(tmpstr))
+	return;
+	
 if(friendmode)
 {
 	get_friend_name();	// 見ているフレンドページからデータ取得
