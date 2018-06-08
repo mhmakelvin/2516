@@ -833,12 +833,12 @@ function print_lest_comp(ver, background, fontcolor, ma_data, ex_data, music_cou
 	tmp += "<th rowspan=2><font color='" + fontcolor + "'>" + ver + '(' + music_count + ')' + "</font></th>";
 	tmp += "<td class=mai_master>M</td>";
 	for(var i=0; i<4; i++)
-		tmp += "<td><font color='" + fontcolor + "'>" + (music_count - ma_data[i]) + "</font></td>";
+		tmp += "<td><font color='" + fontcolor + "'>" + (ma_data[i]) + "</font></td>";
 	tmp += "</tr>";
 	tmp += "<tr bgcolor=" + background + " align=center>";
 	tmp += "<td class=mai_expert>E</td>";
 	for(var i=0; i<4; i++)
-		tmp += "<td><font color='" + fontcolor + "'>" + (music_count - ex_data[i]) + "</font></td>";
+		tmp += "<td><font color='" + fontcolor + "'>" + (ex_data[i]) + "</font></td>";
 	tmp += "</tr>";
 	
 	return tmp;
