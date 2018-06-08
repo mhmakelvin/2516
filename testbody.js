@@ -677,23 +677,21 @@ function print_result_sub_print_datalist(dlist, datedata, id, dan)
 		re_r=dlist[i].rate_values[2]; ma_r=dlist[i].rate_values[1]; ex_r=dlist[i].rate_values[0];
 		
 		/* タイトル */
-		if(dlist[i].lv[2] != "" && dlist[i].achive[2] != "---" && dlist[i].achive[2] != 0)
+		if(dlist[i].lv[2] != "")
 		{
 			rowspan_num++;
 			restr = print_result_sub_print_data(dlist[i], 2, "mai_remaster");
 		}
 	
-		if(dlist[i].achive[1] != 0)	/* 0なら未プレー */
-		{
+		
 			rowspan_num++;
 			mastr = print_result_sub_print_data(dlist[i], 1, "mai_master")
-		}
+		
 
-		if(rowspan_num==0 || Math.max(re_r, ma_r) < mra_arch2rate_100(1, dlist[i].lv[0]))	/* 0なら未プレー */
-		{
+	
 			rowspan_num++;
 			exstr = print_result_sub_print_data(dlist[i], 0, "mai_expert");
-		}
+	
 
 		rslt_str += "<tr><th colspan=" + allspan + " class=music_title>" + dlist[i].name + "</th></tr>"
 		rslt_str += "<tr>";
@@ -811,10 +809,10 @@ function print_result_friend()
 			frd_old_rule_rating.toFixed(2), frd_old_rule_rating);	
 	rslt_str += "</table>";
 
-	if(hashtag.slice(-4)=="test")
+	if(hashtag.slice(-4)!="test")
 	{
 		rslt_str += "<h2 align=center>" + frd_id + "全譜面データ</h2>";
-		rslt_str += print_result_sub_print_datalist(frd_datalist, data_str, frd_id, frd_rankname);
+		rslt_str += print_result_sb_print_datalist(frd_datalist, data_str, frd_id, frd_rankname);
 	}
 	
 	rslt_str += "</body>";
@@ -900,38 +898,38 @@ function print_result()
 
 	rslt_str += "<tr><th colspan=3 bgcolor='#000000'><font color='#ffffff'>" + data_str + "</font></th></tr>";
 	
-	rslt_str += print_result_rating("現在の<br>Rating", your_rating + "<br>(" + your_max_rating + ")", "Your current Rating.", 
+	rslt_str += print_result_rating("現在<br>Rating", your_rating + "<br>(" + your_max_rating + ")", "你現在的Rating.", 
 					your_rating);
 	rslt_str += print_result_rating("Best平均", best_ave, "最好的30首歌的平均", best_ave);
 	rslt_str += print_result_rating("Recent<br>平均(50)※", your_recent_ave +'<br>('+ your_r_waku + ')',
-			"最近50首歌中最好10首的平均br>()内是Rating換算 參考值:" + your_recent, your_recent_ave);
+			"最近50首歌中最好10首的平均<br>()内是Rating換算 參考值:" + your_recent, your_recent_ave);
 	rslt_str += print_result_rating("Recent<br>平均(30)※", your_recent_ave30 +'<br>('+ your_r_waku30 + ')',
 			"最近30首歌中最好10首的平均<br>()内是Rating換算", your_recent_ave30);
-	rslt_str += print_result_rating("Best下限", best_limit, "30位的rate", best_limit);
-	rslt_str += print_result_sub("Hist下限", hist_limit, mra_history + "位的rate");
+	rslt_str += print_result_rating("Best下限", best_limit, "30位的Rate", best_limit);
+	rslt_str += print_result_sub("Hist下限", hist_limit, mra_history + "位的Rate");
 
 	rslt_str += "<tr><th colspan=3 bgcolor='#000000'><font color='#ffffff'>預計能夠到達的最高rating</font></th></tr>";
 
 	rslt_str += print_result_rating("預計值", expect_max, " ", expect_max);
 	rslt_str +=
-		print_result_rating("BEST枠", best_rating + "<br>(" + (best_left.toFixed(2)) + ")",
-				    "(最高30首歌加總)/44<br>()內是+0.01所需的rate值上升", best_ave);
+		print_result_rating("Besr", best_rating + "<br>(" + (best_left.toFixed(2)) + ")",
+				    "(最高30首歌加總)/44<br>()內是+0.01所需的Rate值上升", best_ave);
 	rslt_str +=
-		print_result_rating("RECENT<br>枠", recent_rating + "<br>(" + ((top_rate/100).toFixed(2)) + ")",
-				    "達成10次現時你最高rate值的譜面<br>()內是1位的rate值", top_rate/100);
+		print_result_rating("Recent", recent_rating + "<br>(" + ((top_rate/100).toFixed(2)) + ")",
+				    "達成10次現時你最高rate值的譜面<br>()內是1位的Rate值", top_rate/100);
 	rslt_str +=
-		print_result_sub("HISTORY<br>枠", hist_rating + "<br>(" + (hist_left.toFixed(2)) + ")",
+		print_result_sub("History", hist_rating + "<br>(" + (hist_left.toFixed(2)) + ")",
 				 "(最高" + mra_history +"首歌加總)*(4/" + mra_history + ")/44<br>()內是+0.01所需的rate值上升");
 
 	rslt_str += "</table>";
 
 
-	rslt_str += "<h2 align=center>段位情報</h2>";
+	rslt_str += "<h2 align=center>段位</h2>";
 
 	rslt_str += "<table class=complist border=1 align=center>";
 	
 	rslt_str += "<tr bgcolor='#000000' align=center valign=middle>";
-	rslt_str += "<th colspan=3><font color='#ffffff'>" + your_id + "のRank/Complete情報<br>" + data_str + "現在</font></th>";
+	rslt_str += "<th colspan=3><font color='#ffffff'>" + your_id + "的段位<br>" + data_str + "</font></th>";
 	rslt_str += "</tr>";
 
 	rslt_str += "<tr bgcolor='#FFFFFF' align=center valign=middle>";
@@ -980,7 +978,7 @@ function print_result()
 	ranklist=null;
 	complist=null;
 
-	if(hashtag.slice(-4)=="test")
+	if(hashtag.slice(-4)!="test")
 	{
 	rslt_str += "<h2 align=center>Recent情報</h2>";
 	rslt_str += "<table align=center border=1 class=recent_table>";
@@ -999,9 +997,8 @@ function print_result()
 	}
 	rslt_str += "</table>";
 	}
-	rslt_str += "<h2 align=center>全譜面レート値データ</h2>";
 
-	if(hashtag.slice(-4)!="test")
+	if(hashtag.slice(-4)=="test")
 	{
 	rslt_str += "<p align=center>寝言サイトにも書いてますが、<b>ただの飾り</b>です。参考情報。</p>";
 	rslt_str += "<table class=alltable align=center border=1>";
@@ -1096,10 +1093,6 @@ if(friendmode)
 }
 else 
 {
-	// 再計算。未検証扱いの譜面は最低値になる。全譜面データ表示用で、到達Ratingの計算への影響はない。
-	if(hashtag.slice(-4)!="test")
-		datalist_recalc(datalist);
-	
 	print_result();	//全譜面リスト表示
 }
 
