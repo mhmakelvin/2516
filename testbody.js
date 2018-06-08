@@ -831,12 +831,12 @@ function print_lest_comp(ver, background, fontcolor, ma_data, ex_data, music_cou
 	var tmp = "";
 	tmp += "<tr bgcolor=" + background + " align=center>";
 	tmp += "<th rowspan=2><font color='" + fontcolor + "'>" + ver + '(' + music_count + ')' + "</font></th>";
-	tmp += "<td class=mai_master>M</td>";
+	tmp += "<td class=mai_master>MASTER</td>";
 	for(var i=0; i<4; i++)
 		tmp += "<td><font color='" + fontcolor + "'>" + (ma_data[i]) + "</font></td>";
 	tmp += "</tr>";
 	tmp += "<tr bgcolor=" + background + " align=center>";
-	tmp += "<td class=mai_expert>E</td>";
+	tmp += "<td class=mai_expert>EXPERT</td>";
 	for(var i=0; i<4; i++)
 		tmp += "<td><font color='" + fontcolor + "'>" + (ex_data[i]) + "</font></td>";
 	tmp += "</tr>";
@@ -957,7 +957,7 @@ function print_result()
 	rslt_str += "<tr bgcolor='#000000' align=center valign=middle>";
 	rslt_str += "<th colspan=6><font color='#ffffff'>" + your_id + "のComp plate残り状況<br>" + data_str + "現在</font></th>";
 	rslt_str += "<tr bgcolor='#FFFFFF' align=center valign=middle>";
-	rslt_str += "<th>ver.</th><th>難</th><th>100%Sync</th><th>AP</th><th>SS</th><th>FC</th>";
+	rslt_str += "<th>ver.</th><th>難度</th><th>100%Sync</th><th>AP</th><th>SSS</th><th>FC</th>";
 	rslt_str += "</tr>";
 
 	rslt_str += print_lest_comp('初代', '#0095d9', '#FFFFFF', ma_comp[1], ex_comp[1], music_ver_count[1]);
