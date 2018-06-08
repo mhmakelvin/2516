@@ -1039,7 +1039,16 @@ function print_result()
 /* ココからメイン */
 if(location.href == mainet_dom+"friend/friendProfile")
 	friendmode = true;
-
+var tmpstr = "--Maimai Rating Analyzer--\n";
+tmpstr += (friendmode)?(" Friend Mode \n"):(""); 
+tmpstr += (hashtag.slice(-4)!="test")?("\n\n"):("(test)\n\n");
+tmpstr += maimai_inner_lv.length + "songs(" + mra_update_mlist + ") version\n";
+tmpstr += "Last Update : ";
+tmpstr += (mra_update_algorithm >= mra_update_llist)?mra_update_algorithm:mra_update_llist;
+// tmpstr += "\n\n";
+// tmpstr += "Programmed by Ludwig Josef Johann Wittgenstein";
+if(!confirm(tmpstr))
+	return;
 if(friendmode)
 {
 	get_friend_name();	// 見ているフレンドページからデータ取得
