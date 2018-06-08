@@ -27,7 +27,7 @@ var friendmode = false; // 動作モード系
 
 var hashtag = "%e8%88%9e%e3%83%ac%e3%83%bc%e3%83%88%e8%a7%a3%e6%9e%90";	// 舞レート解析
 var mainet_dom = 'https://maimai-net.com/maimai-mobile/';
-var mra_update_algorithm = "2018.06.09";
+var mra_update_algorithm = "2018.06.08";
 var max_play_hist=50;
 
 var music_count=maimai_inner_lv.length;
@@ -809,7 +809,7 @@ function print_result_friend()
 			frd_old_rule_rating.toFixed(2), frd_old_rule_rating);	
 	rslt_str += "</table>";
 
-	if(hashtag.slice(-4)=="test")
+	if(hashtag.slice(-4)!="test")
 	{
 		rslt_str += "<h2 align=center>" + frd_id + "全譜面データ</h2>";
 		rslt_str += print_result_sub_print_datalist(frd_datalist, data_str, frd_id, frd_rankname);
