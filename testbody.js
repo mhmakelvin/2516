@@ -888,7 +888,7 @@ function print_result()
 	
 	rslt_str += "<h2 align=center>" + your_id + rankname + "</h2>";
 	
-	rslt_str += "<h2 align=center>Rating解析結果</h2>";
+	rslt_str += "<h2 align=center>Rating Analysis</h2>";
 
 	rslt_str += "<table class=datatable border=1 align=center>";
 	rslt_str += "<tr valign=middle>";
@@ -898,45 +898,35 @@ function print_result()
 	rslt_str += "</th>";
 	rslt_str += "</tr>";
 
-	rslt_str += "<tr><th colspan=3 bgcolor='#000000'><font color='#ffffff'>" + data_str + "現在</font></th></tr>";
+	rslt_str += "<tr><th colspan=3 bgcolor='#000000'><font color='#ffffff'>" + data_str + "</font></th></tr>";
 	
-	rslt_str += print_result_rating("現在の<br>Rating", your_rating + "<br>(" + your_max_rating + ")", "maimai.netで確認できるRating", 
+	rslt_str += print_result_rating("現在の<br>Rating", your_rating + "<br>(" + your_max_rating + ")", "Your current Rating.", 
 					your_rating);
-	rslt_str += print_result_rating("BEST平均", best_ave, "上位30曲の平均レート値", best_ave);
-	rslt_str += print_result_rating("RECENT<br>50平均※", your_recent_ave +'<br>('+ your_r_waku + ')',
-			"直近50譜面の上位10譜面平均<br>()内はR枠換算 参考値:" + your_recent, your_recent_ave);
-	rslt_str += print_result_rating("RECENT<br>30平均※", your_recent_ave30 +'<br>('+ your_r_waku30 + ')',
-			"直近30譜面の上位10譜面平均<br>()内はR枠換算", your_recent_ave30);
-	rslt_str += print_result_rating("BEST下限", best_limit, "30位のレート値", best_limit);
-	rslt_str += print_result_sub("HIST下限", hist_limit, mra_history + "位のレート値");
+	rslt_str += print_result_rating("Best平均", best_ave, "最好的30首歌的平均", best_ave);
+	rslt_str += print_result_rating("Recent<br>平均(50)※", your_recent_ave +'<br>('+ your_r_waku + ')',
+			"最近50首歌中最好10首的平均br>()内是Rating換算 參考值:" + your_recent, your_recent_ave);
+	rslt_str += print_result_rating("Recent<br>平均(30)※", your_recent_ave30 +'<br>('+ your_r_waku30 + ')',
+			"最近30首歌中最好10首的平均<br>()内是Rating換算", your_recent_ave30);
+	rslt_str += print_result_rating("Best下限", best_limit, "30位的rate", best_limit);
+	rslt_str += print_result_sub("Hist下限", hist_limit, mra_history + "位的rate");
 
-	rslt_str += "<tr><th colspan=3 bgcolor='#000000'><font color='#ffffff'>予想到達可能Rating</font></th></tr>";
+	rslt_str += "<tr><th colspan=3 bgcolor='#000000'><font color='#ffffff'>預計能夠到達的最高rating</font></th></tr>";
 
-	rslt_str += print_result_rating("予想値", expect_max, "下の3つの値の合計", expect_max);
+	rslt_str += print_result_rating("預計值", expect_max, " ", expect_max);
 	rslt_str +=
 		print_result_rating("BEST枠", best_rating + "<br>(" + (best_left.toFixed(2)) + ")",
-				    "(上位30曲の合計)/44<br>()は+0.01する為の必要レート", best_ave);
+				    "(最高30首歌加總)/44<br>()內是+0.01所需的rate值上升", best_ave);
 	rslt_str +=
 		print_result_rating("RECENT<br>枠", recent_rating + "<br>(" + ((top_rate/100).toFixed(2)) + ")",
-				    "レート値1位を10回達成<br>()は1位の単曲レート値", top_rate/100);
+				    "達成10次現時你最高rate值的譜面<br>()內是1位的rate值", top_rate/100);
 	rslt_str +=
 		print_result_sub("HISTORY<br>枠", hist_rating + "<br>(" + (hist_left.toFixed(2)) + ")",
-				 "(上位" + mra_history +"曲の合計)*(4/" + mra_history + ")/44<br>()は+0.01する為の必要レート");
-	rslt_str += "<tr><th colspan=3 bgcolor='#000000'><font color='#ffffff'>参考値</font></th></tr>";
-	rslt_str += print_result_rating("旧形式換算", old_rule_rating.toFixed(2),
-					"旧方式での現時点でのRating<br>到達可能ではない", old_rule_rating);
+				 "(最高" + mra_history +"首歌加總)*(4/" + mra_history + ")/44<br>()內是+0.01所需的rate值上升");
+
 	rslt_str += "</table>";
-	rslt_str += "<p align=center>※RECENT平均は予測到達可能には影響しません。<br>あくまで現状の確認。</p>";
 
-	rslt_str += "<p align=center>";
-	rslt_str += "<a href='https://twitter.com/intent/tweet?hashtags=" + hashtag + "&text=" + tweet_rate_str + "' " + "target='_blank'>"
-	rslt_str += "＞＞Rating情報のツイート＜＜</a></p>";
 
-	rslt_str += "<p align=center>";
-	rslt_str += "<a href='https://sgimera.github.io/mai_RatingAnalyzer/' target=_blank>";
-	rslt_str += "＞＞解説は”新・CYCLES FUNの寝言”へ＜＜</a></p>";
-
-	rslt_str += "<h2 align=center>Rank/Complete情報</h2>";
+	rslt_str += "<h2 align=center>段位情報</h2>";
 
 	rslt_str += "<table class=complist border=1 align=center>";
 	
@@ -969,19 +959,19 @@ function print_result()
 	rslt_str += "<tr bgcolor='#000000' align=center valign=middle>";
 	rslt_str += "<th colspan=6><font color='#ffffff'>" + your_id + "のComp plate残り状況<br>" + data_str + "現在</font></th>";
 	rslt_str += "<tr bgcolor='#FFFFFF' align=center valign=middle>";
-	rslt_str += "<th>ver.</th><th>難</th><th>舞舞</th><th>神</th><th>将</th><th>極</th>";
+	rslt_str += "<th>ver.</th><th>難</th><th>100%Sync</th><th>AP</th><th>SS</th><th>FC</th>";
 	rslt_str += "</tr>";
 
-	rslt_str += print_lest_comp('真', '#0095d9', '#FFFFFF', ma_comp[1], ex_comp[1], music_ver_count[1]);
-	rslt_str += print_lest_comp('超', '#00b300', '#FFFFFF', ma_comp[3], ex_comp[3], music_ver_count[3]);
-	rslt_str += print_lest_comp('檄', '#00b300', '#FFFFFF', ma_comp[4], ex_comp[4], music_ver_count[4]);
-	rslt_str += print_lest_comp('橙', '#fab300', '#000000', ma_comp[5], ex_comp[5], music_ver_count[5]);
-	rslt_str += print_lest_comp('暁', '#fab300', '#000000', ma_comp[6], ex_comp[6], music_ver_count[6]);
-	rslt_str += print_lest_comp('桃', '#FF83CC', '#000000', ma_comp[7], ex_comp[7], music_ver_count[7]);
-	rslt_str += print_lest_comp('櫻', '#FF83CC', '#000000', ma_comp[8], ex_comp[8], music_ver_count[8]);
-	rslt_str += print_lest_comp('紫', '#b44c97', '#FFFFFF', ma_comp[9], ex_comp[9], music_ver_count[9]);
-	rslt_str += print_lest_comp('菫', '#b44c97', '#FFFFFF', ma_comp[10], ex_comp[10], music_ver_count[10]);
-	rslt_str += print_lest_comp('白', '#FFFFFF', '#b44c97', ma_comp[11], ex_comp[11], music_ver_count[11]);
+	rslt_str += print_lest_comp('初代', '#0095d9', '#FFFFFF', ma_comp[1], ex_comp[1], music_ver_count[1]);
+	rslt_str += print_lest_comp('GreeN', '#00b300', '#FFFFFF', ma_comp[3], ex_comp[3], music_ver_count[3]);
+	rslt_str += print_lest_comp('GreeN PLUS', '#00b300', '#FFFFFF', ma_comp[4], ex_comp[4], music_ver_count[4]);
+	rslt_str += print_lest_comp('ORANGE', '#fab300', '#000000', ma_comp[5], ex_comp[5], music_ver_count[5]);
+	rslt_str += print_lest_comp('ORANGE PLUS', '#fab300', '#000000', ma_comp[6], ex_comp[6], music_ver_count[6]);
+	rslt_str += print_lest_comp('PiNK', '#FF83CC', '#000000', ma_comp[7], ex_comp[7], music_ver_count[7]);
+	rslt_str += print_lest_comp('PiNK PLUS', '#FF83CC', '#000000', ma_comp[8], ex_comp[8], music_ver_count[8]);
+	rslt_str += print_lest_comp('MURASAKI', '#b44c97', '#FFFFFF', ma_comp[9], ex_comp[9], music_ver_count[9]);
+	rslt_str += print_lest_comp('MURASAKI PLUS', '#b44c97', '#FFFFFF', ma_comp[10], ex_comp[10], music_ver_count[10]);
+	rslt_str += print_lest_comp('MiLK', '#FFFFFF', '#b44c97', ma_comp[11], ex_comp[11], music_ver_count[11]);
 				    
 	rslt_str += "</table>";
 	
