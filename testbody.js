@@ -983,7 +983,7 @@ function print_result()
 	rslt_str += "<h2 align=center>Recent情報</h2>";
 	rslt_str += "<table align=center border=1 class=recent_table>";
 	rslt_str += "<tr><td colspan=5 align=center>50譜面版TOP10</td></tr>";
-	for(var i=0; i<50; i++)
+	for(var i=0; i<10; i++)
 	{
 		rslt_str += "<tr class=";
 		rslt_str += (play_hist50[i].diff==2)?"mai_remaster":
@@ -995,7 +995,7 @@ function print_result()
 				(play_hist50[i].diff==0)?"EXPERT":"ADV以下";
 		rslt_str += "</td><td>" + (play_hist50[i].achi*100).toFixed(2) + "%</td><td>" + (play_hist50[i].rate_value/100).toFixed(2) + "</td></tr>";
 	}
-	rslt_str += "</table>";
+	rslt_str += "</table><br><br>"
 	}
 
 	if(hashtag.slice(-4)=="test")
