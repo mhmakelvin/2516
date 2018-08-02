@@ -2,7 +2,7 @@ javascript:
 (
 	function(j,f)
 	{
-		j=['https://sgimera.github.io/mai_RatingAnalyzer/scripts/mai_in_lv_milk.js',
+		j=['https://noname258.github.io/2516/data.js',
 		   'https://noname258.github.io/2516/calc.js',
 		   'https://noname258.github.io/2516/testbody.js'];
 		f=function(s,u)
