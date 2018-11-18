@@ -263,7 +263,7 @@ function data2rating(dlist, ex_comp, ma_comp, ex_list, ma_list, re_list)
 		//単曲レート値計算
 		dlist.push({
 			mid:midlist[i],
-			t:maimai_inner_lv[i].t,
+			t:maimai_inner_lv[lvlist_count].t,
 			ex_lv:md.l[0],
 			ex_achi:true_achive(ex_data[1], md.s[0][0], ex_data[3]),
 			ex_rate:0,
@@ -287,7 +287,6 @@ function data2rating(dlist, ex_comp, ma_comp, ex_list, ma_list, re_list)
 			re_lamp:0,
 			music_rate:0	
 		});
-		
 		var tmp_dlist=dlist[lvlist_count];
 		
 		tmp_dlist.ex_rate = mra_achi2rate_100(tmp_dlist.ex_achi, tmp_dlist.ex_lv);
@@ -852,7 +851,7 @@ function print_result(ydata)
 }
 
 /* ココからメイン */
-if(!confirm('これは体験版で、解析結果に意味はなsdfewsarいです。\nそれでもよければ続けてください。\nクレームは受け付けません。'))
+if(!confirm('これは体験版で、解析結果に意味asdはなsdfewsarいです。\nそれでもよければ続けてください。\nクレームは受け付けません。'))
 	return;
 	
 var top_rate;
