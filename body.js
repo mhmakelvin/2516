@@ -851,7 +851,7 @@ function print_result(ydata)
 }
 
 /* ココからメイン */
-if(!confirm('これは体験版で、解析結果に意味はないです。\nそれでもよければ続けてください。\nクレームは受け付けません。'))
+if(!confirm('これは体験版で、解析結果に意味はなewsarいです。\nそれでもよければ続けてください。\nクレームは受け付けません。'))
 	return;
 	
 var top_rate;
