@@ -5,7 +5,7 @@ javascript:
 		j=['data.js',
 		   'calc.js',
 		   'body.js'];
-		dom='https://github.com/noname258/2516/';
+		dom='https://noname258.github.io/2516/';
 		f=function(s,u)
 		{
 			if(j.length==0)
