@@ -263,7 +263,7 @@ function data2rating(dlist, ex_comp, ma_comp, ex_list, ma_list, re_list)
 		//単曲レート値計算
 		dlist.push({
 			mid:midlist[i],
-			t:maimai_inner_lv[lvlist_count].t,
+			t:maimai_inner_lv[i].t,
 			ex_lv:md.l[0],
 			ex_achi:true_achive(ex_data[1], md.s[0][0], ex_data[3]),
 			ex_rate:0,
