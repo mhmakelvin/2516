@@ -263,6 +263,7 @@ function data2rating(dlist, ex_comp, ma_comp, ex_list, ma_list, re_list)
 		//単曲レート値計算
 		dlist.push({
 			mid:midlist[i],
+			t:maimai_inner_lv[i].t,
 			ex_lv:md.l[0],
 			ex_achi:true_achive(ex_data[1], md.s[0][0], ex_data[3]),
 			ex_rate:0,
@@ -644,7 +645,7 @@ function print_result_sub_print_datalist(dlist, datedata, id, dan, top_rate)
 				(ex_r, dli.ex_lv, dli.ex_achi, dli.ex_bc, dli.ex_bk, dli.ex_lamp, "mai_expert"));
 		}
 
-		m_name = dli.mid;
+		m_name = dli.t;
 		
 		rslt_str += "<tr><th colspan=6 class=music_title>" + m_name + "</th></tr>"
 		rslt_str += "<tr>";
