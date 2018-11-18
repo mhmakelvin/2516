@@ -1,17 +1,18 @@
 javascript:
 (
-	function(j,f)
+	function(j,f,dom)
 	{
-		j=['https://sgimera.github.io/mai_RatingAnalyzer/scripts/mai_inner_level_milk3.js',
-		   'https://noname258.github.io/2516/calc.js',
-		   'https://noname258.github.io/2516/testbody.js'];
+		j=['data.js',
+		   'calc.js',
+		   'body.js'];
+		dom='https://github.com/noname258/2516/';
 		f=function(s,u)
 		{
 			if(j.length==0)
 			{
 				return;
 			}
-			u=j.shift()+'?'+Date.now();
+			u=dom+j.shift()+'?'+Date.now();
 			s=document.createElement('script');
 			document.body.appendChild(s);
 			s.charset='UTF-8';
