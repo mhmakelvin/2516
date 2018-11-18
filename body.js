@@ -304,7 +304,7 @@ function data2rating(dlist, ex_comp, ma_comp, ex_list, ma_list, re_list)
 		tmp_dlist.ma_bonus = (tmp_dlist.ma_bk==0)?0:
 			Math.floor(tmp_dlist.ma_bc*100 / tmp_dlist.ma_bk);
 		
-		idx=re_midlist.indexOf(midlist[i]);
+		idx=re_midlist.indexOf(midlist[j]);
 
 		if(idx>=0)
 		{
@@ -858,7 +858,7 @@ function print_result(ydata)
 }
 
 /* ココからメイン */
-if(!confirm('これは体験版で、Fuccccccking testing解析結果に意味asdはなsdfewsarいです。\nそれでもよければ続けてください。\nクレームは受け付けません。'))
+if(!confirm('これは体験版で、Fuccccccccccccccccking testing解析結果に意味asdはなsdfewsarいです。\nそれでもよければ続けてください。\nクレームは受け付けません。'))
 	return;
 	
 var top_rate;
