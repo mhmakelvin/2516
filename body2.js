@@ -598,7 +598,7 @@ function print_result_sub_lamp2str(lampnum)
 function print_result_sub_print_data(rate_value, lv, achive, bc, bk, lmp, classname) // rate, lv, achive
 {
 	var str="", tmplv;
-	str += "<th class=" + classname + ">" + (rate_value/100).toFixed(2) + "</th>";
+	str += "<th class=" + classname + ">" + (rate_value/1).toFixed(2) + "</th>";
 	str += "<th class=" + classname + ">" + lv.replace(/12\.[3-6]/, '12=').replace(/(12|13)\.[0-6]/, '$1-').replace(/(12|13)\.[7-9]/, '$1+').replace(/-|=/g, '') + "</th>";
 	str += (bc==0)?"<th class=" + classname + ">" + (100*achive).toFixed(4) + "%</th>":
 		"<th class=" + classname + ">" + bc + '/' + bk + "</th>";
