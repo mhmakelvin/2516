@@ -256,10 +256,7 @@ function data2rating(dlist, ex_comp, ma_comp, ex_list, ma_list, re_list)
 	
 	for(var j=0; j<mlist_length; j++)
 	{
-		function find(a){
-			return a.i==j;
-		}
-		var found=maimai_inner_lv.findIndex(find);
+
 		midx=md_ilist.indexOf(midlist[j]);
 		if(midx < 0)
 			continue;
@@ -270,7 +267,7 @@ function data2rating(dlist, ex_comp, ma_comp, ex_list, ma_list, re_list)
 		//単曲レート値計算
 		dlist.push({
 			mid:midlist[j],
-			t:maimai_inner_lv[found].t,
+			t:maimai_inner_lv[j].t,
 			ex_lv:md.l[0],
 			ex_achi:true_achive(ex_data[1], md.s[0][0], ex_data[3]),
 			ex_rate:0,
