@@ -254,22 +254,22 @@ function data2rating(dlist, ex_comp, ma_comp, ex_list, ma_list, re_list)
 	var midx=-1;
 	var ex_data, ma_data, re_data
 	
-	for(var i=0; i<mlist_length; i++)
+	for(var j=0; j<mlist_length; j++)
 	{
 		function find(a){
-			return a.i==i;
+			return a.i==j;
 		}
 		var found=maimai_inner_lv.findIndex(find);
-		midx=md_ilist.indexOf(midlist[i]);
+		midx=md_ilist.indexOf(midlist[j]);
 		if(midx < 0)
 			continue;
 		var md = maimai_inner_lv[midx];
-		ex_data=ex_list[i];
-		ma_data=ma_list[i];
+		ex_data=ex_list[j];
+		ma_data=ma_list[j];
 
 		//単曲レート値計算
 		dlist.push({
-			mid:midlist[i],
+			mid:midlist[j],
 			t:maimai_inner_lv[found].t,
 			ex_lv:md.l[0],
 			ex_achi:true_achive(ex_data[1], md.s[0][0], ex_data[3]),
@@ -858,7 +858,7 @@ function print_result(ydata)
 }
 
 /* ココからメイン */
-if(!confirm('これは体験版で、Fucking testing解析結果に意味asdはなsdfewsarいです。\nそれでもよければ続けてください。\nクレームは受け付けません。'))
+if(!confirm('これは体験版で、Fuccccccking testing解析結果に意味asdはなsdfewsarいです。\nそれでもよければ続けてください。\nクレームは受け付けません。'))
 	return;
 	
 var top_rate;
