@@ -259,7 +259,7 @@ function data2rating(dlist, ex_comp, ma_comp, ex_list, ma_list, re_list)
 		function find(a){
 			return a.i==i;
 		}
-		var found=maimai_inner_lv.findIndex(finding);
+		var found=maimai_inner_lv.findIndex(find);
 		midx=md_ilist.indexOf(midlist[i]);
 		if(midx < 0)
 			continue;
@@ -858,7 +858,7 @@ function print_result(ydata)
 }
 
 /* ココからメイン */
-if(!confirm('これは体験版で、funcking testing解析結果に意味asdはなsdfewsarいです。\nそれでもよければ続けてください。\nクレームは受け付けません。'))
+if(!confirm('これは体験版で、Fucking testing解析結果に意味asdはなsdfewsarいです。\nそれでもよければ続けてください。\nクレームは受け付けません。'))
 	return;
 	
 var top_rate;
