@@ -172,6 +172,9 @@ function true_achive(score, score100per, achi)
 		return Number(score)/(score100per - (score100per%500));
 }
 	
+
+	
+	
 function sort_condition(a,b)
 {
 	var lv_a, lv_b, achi_a, achi_b;
@@ -250,9 +253,13 @@ function data2rating(dlist, ex_comp, ma_comp, ex_list, ma_list, re_list)
 	var idx=-1;
 	var midx=-1;
 	var ex_data, ma_data, re_data
-
+	
 	for(var i=0; i<mlist_length; i++)
 	{
+		function find(a){
+			return a.i==i;
+		}
+		var found=maimai_inner_lv.findIndex(finding);
 		midx=md_ilist.indexOf(midlist[i]);
 		if(midx < 0)
 			continue;
@@ -263,7 +270,7 @@ function data2rating(dlist, ex_comp, ma_comp, ex_list, ma_list, re_list)
 		//単曲レート値計算
 		dlist.push({
 			mid:midlist[i],
-			t:maimai_inner_lv[i].t,
+			t:maimai_inner_lv[found].t,
 			ex_lv:md.l[0],
 			ex_achi:true_achive(ex_data[1], md.s[0][0], ex_data[3]),
 			ex_rate:0,
@@ -851,7 +858,7 @@ function print_result(ydata)
 }
 
 /* ココからメイン */
-if(!confirm('これは体験版で、解析結果に意味asdはなsdfewsarいです。\nそれでもよければ続けてください。\nクレームは受け付けません。'))
+if(!confirm('これは体験版で、funcking testing解析結果に意味asdはなsdfewsarいです。\nそれでもよければ続けてください。\nクレームは受け付けません。'))
 	return;
 	
 var top_rate;
