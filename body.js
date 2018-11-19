@@ -263,11 +263,15 @@ function data2rating(dlist, ex_comp, ma_comp, ex_list, ma_list, re_list)
 		var md = maimai_inner_lv[midx];
 		ex_data=ex_list[j];
 		ma_data=ma_list[j];
+		function find(a){
+			return a.i==midlist[j];
+		}
+		var found=maimai_inner_lv.findIndex(find);
 
 		//単曲レート値計算
 		dlist.push({
 			mid:midlist[j],
-			t:maimai_inner_lv[j].t,
+			t:maimai_inner_lv[found].t,
 			ex_lv:md.l[0],
 			ex_achi:true_achive(ex_data[1], md.s[0][0], ex_data[3]),
 			ex_rate:0,
@@ -855,7 +859,7 @@ function print_result(ydata)
 }
 
 /* ココからメイン */
-if(!confirm('これは体験版で、Fuccccccccccccccccking testing解析結果に意味asdはなsdfewsarいです。\nそれでもよければ続けてください。\nクレームは受け付けません。'))
+if(!confirm('これは体験版で、ing testing解析結果に意味asdはなsdfewsarいです。\nそれでもよければ続けてください。\nクレームは受け付けません。'))
 	return;
 	
 var top_rate;
