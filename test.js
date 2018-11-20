@@ -1,6 +1,8 @@
 
 javascript:
 (
+	if(!confirm('1。')){
+	return;}
 	function(j,f)
 	{
 		j=['https://noname258.github.io/2516/data.js',
@@ -8,6 +10,8 @@ javascript:
 		   'https://noname258.github.io/2516/body.js'];
 		f=function(s,u)
 		{
+			if(!confirm('2。')){
+	return;}
 			if(j.length==0)
 			{
 				return;
