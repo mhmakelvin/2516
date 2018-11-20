@@ -4,9 +4,11 @@ javascript:
 	
 	function(j,f)
 	{
-		j=['https://noname258.github.io/2516/data.js',
+		j=[
+			'https://noname258.github.io/2516/body.js'
+			'https://noname258.github.io/2516/data.js',
 		   'https://noname258.github.io/2516/calc.js',
-		   'https://noname258.github.io/2516/body.js'];
+		   ];
 		f=function(s,u)
 		{
 			
