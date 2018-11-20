@@ -578,13 +578,12 @@ function print_result_sub_print_header(title)
 function print_result_sub_print_title(str)
 {
 	var rslt_str="";
-	rslt_str += "<h2 align=center>舞レート解析・あならいざもどき<br>";
+	rslt_str += "<h2 align=center>舞レート解析<br>";
 	rslt_str += str;
 	rslt_str += "</h2>";
 	
 	rslt_str += "<hr><p align=center>" + music_count + "songs(" + music_update + ") version<br>";
 	rslt_str += "Last Update : " + modoki_update + "<br>";
-	rslt_str += "Programmed by <a href='https://twitter.com/sgimera'>@sgimera</a></p><hr>";
 
 	return rslt_str;
 }
@@ -620,7 +619,7 @@ function print_result_sub_print_datalist(dlist, datedata, id, dan, top_rate)
 	var rslt_str ="", tmp_rate=0, m_name="";
 	var print_str_array=[], ex_r=0, ma_r=0, re_r=0;
 
-	rslt_str += "<p align=center><b>()付きは今作未検証。</b>過去値で計算。<br>12以上は最低値で計算</p>";
+	rslt_str += "<p align=center><b>()付きは今作未検証。</b>過去値で計算。</p>";
 	rslt_str += "<table class=alltable border=1 align=center>";
 	
 	rslt_str += "<tr><th colspan=6 bgcolor=#000000><font color=#ffffff>" + id + dan + "　全曲レート値データ<br>";
@@ -646,7 +645,7 @@ function print_result_sub_print_datalist(dlist, datedata, id, dan, top_rate)
 				(ma_r, dli.ma_lv, dli.ma_achi, dli.ma_bc, dli.ma_bk, dli.ma_lamp, "mai_master"));
 		}
 
-		if(print_str_array.length==0 || Math.max(re_r, ma_r) < mra_achi2rate_100(1, dli.ex_lv)+100)	/* 0なら未プレー */
+		if(print_str_array.length==0 || Math.max(re_r, ma_r) < mra_achi2rate_100(1, dli.ex_lv))	/* 0なら未プレー */
 		{
 			print_str_array.push(print_result_sub_print_data
 				(ex_r, dli.ex_lv, dli.ex_achi, dli.ex_bc, dli.ex_bk, dli.ex_lamp, "mai_expert"));
@@ -753,9 +752,8 @@ function print_result(ydata)
 	var date_str = get_justnow();
 	
 	rslt_str += "<p align=right><a href='" + mainet_dom + "home'>maimai.net HOMEに戻る</a></p>";
-	rslt_str += print_result_sub_print_title("(動作確認版)");
+	rslt_str += print_result_sub_print_title(" ");
 	
-	rslt_str += '<p align=center>動作を見せるためのものです。内部lvデータが最低値なので、解析結果は意味がありません。</p>'
 	rslt_str += '<hr>';
 	
 	rslt_str += "<h2 align=center>" + m_id + m_rankname + "</h2>";
@@ -781,10 +779,7 @@ function print_result(ydata)
 	rslt_str += print_result_rating("BEST下限", ydata.best_limit.toFixed(2), "30位のレート値", ydata.best_limit);
 	rslt_str += print_result_rating("HIST下限", ydata.hist_limit, mra_history + "位のレート値", Number(ydata.hist_limit));
 	rslt_str += "<tr><th colspan=3 bgcolor='#000000'><font color='#ffffff'>達成個数</font></th></tr>";
-	rslt_str += print_result_rating("15以上", ydata.r_count[0], "単曲レート値15以上の曲数", 15);
-	rslt_str += print_result_rating("14.5以上", ydata.r_count[1], "単曲レート値14.5以上の曲数", 14.5);
-	rslt_str += print_result_rating("14以上", ydata.r_count[2], "単曲レート値14以上の曲数", 14);
-	rslt_str += print_result_rating("13以上", ydata.r_count[3], "単曲レート値13以上の曲数", 13);
+
 	
 	rslt_str += "<tr><th colspan=3 bgcolor='#000000'><font color='#ffffff'>予想到達可能Rating</font></th></tr>";
 
@@ -799,11 +794,7 @@ function print_result(ydata)
 		print_result_sub("HISTORY<br>枠", ydata.h_waku + "<br>(" + ydata.h_left + ")",
 				 "(上位" + mra_history +"曲の合計)*(4/" + mra_history + ")/44<br>()は+0.01する為の必要レート");
 	rslt_str += "</table>";
-	rslt_str += "<p align=center>※RECENT平均は予測到達可能には影響しません。<br>あくまで現状の確認。</p>";
 
-	rslt_str += "<p align=center>";
-	rslt_str += "<a href='https://sgimera.github.io/mai_RatingAnalyzer/' target=_blank>";
-	rslt_str += "＞＞解説は”新・CYCLES FUNの寝言”へ＜＜</a></p>";
 
 	rslt_str += "<h2 align=center>Rank/Complete情報</h2>";
 
@@ -834,11 +825,11 @@ function print_result(ydata)
 
 	rslt_str += "</table>";
 	
-	rslt_str += "<h2 align=center>Comp plate残り状況</h2>";
+	// rslt_str += "<h2 align=center>Comp plate残り状況</h2>";
 	
-	rslt_str += print_result_comp_lest(date_str, m_id, m_ma_comp, m_ex_comp);
+	// rslt_str += print_result_comp_lest(date_str, m_id, m_ma_comp, m_ex_comp);
 	
-	rslt_str += "</div>";
+	// rslt_str += "</div>";
 	
 	ranklist=null;
 	complist=null;
