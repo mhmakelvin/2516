@@ -1,18 +1,18 @@
+
 javascript:
 (
-	function(j,f,dom)
+	function(j,f)
 	{
-		j=['data.js',
-		   'calc.js',
-		   'body.js'];
-		dom='https://noname258.github.io/2516/';
+		j=['https://noname258.github.io/2516/data.js',
+		   'https://noname258.github.io/2516/calc.js',
+		   'https://noname258.github.io/2516/body.js'];
 		f=function(s,u)
 		{
 			if(j.length==0)
 			{
 				return;
 			}
-			u=dom+j.shift()+'?'+Date.now();
+			u=j.shift()+'?'+Date.now();
 			s=document.createElement('script');
 			document.body.appendChild(s);
 			s.charset='UTF-8';
