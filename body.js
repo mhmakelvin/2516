@@ -592,13 +592,13 @@ function print_result_sub_lamp2str(lampnum)
 {
 	var str = '';
 	if((lampnum & 0x01000000) != 0)
-		str += '舞';
+		str += '100%Sync';
 	if((lampnum & 0x00010000) != 0)
-		str += '神';
+		str += 'AP';
 	if(str != '')
 		return str;	//ここまでで何か入っていれば確定
 	if((lampnum & 0x00000001) != 0)
-		str += '極';
+		str += 'FC';
 	return str;
 }
 	
@@ -608,7 +608,7 @@ function print_result_sub_print_data(rate_value, lv, achive, bc, bk, lmp, classn
 	str += "<th class=" + classname + ">" + (rate_value/100).toFixed(2) + "</th>";
 	str += "<th class=" + classname + ">" + lv + "</th>";
 	str += (bc==0)?"<th class=" + classname + ">" + (100*achive).toFixed(4) + "%</th>":
-		"<th class=" + classname + ">" + bc + '/' + bk + "</th>";
+		"<th class=" + classname + ">" + bc*100 + '/' + bk*100 + "</th>";
 	str += "<th class=" + classname + ">" + print_result_sub_lamp2str(lmp) + "</th>";
 
 	return str;
@@ -778,7 +778,6 @@ function print_result(ydata)
 			"直近50譜面の上位10譜面平均<br>()内はR枠換算 参考値:" + ydata.r_ref, m_recent_ave);
 	rslt_str += print_result_rating("BEST下限", ydata.best_limit.toFixed(2), "30位のレート値", ydata.best_limit);
 	rslt_str += print_result_rating("HIST下限", ydata.hist_limit, mra_history + "位のレート値", Number(ydata.hist_limit));
-	rslt_str += "<tr><th colspan=3 bgcolor='#000000'><font color='#ffffff'>達成個数</font></th></tr>";
 
 	
 	rslt_str += "<tr><th colspan=3 bgcolor='#000000'><font color='#ffffff'>予想到達可能Rating</font></th></tr>";
